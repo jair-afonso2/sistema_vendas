@@ -664,28 +664,30 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\FIC\\.nuget\\packages\\": {},
+    "C:\\Users\\CorujasDev\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\FIC\\aula_backend\\sistema_vendas\\sistema_vendas.csproj",
+      "projectUniqueName": "g:\\Projetos_Internos\\sistema_vendas\\sistema_vendas.csproj",
       "projectName": "sistema_vendas",
-      "projectPath": "C:\\Users\\FIC\\aula_backend\\sistema_vendas\\sistema_vendas.csproj",
-      "packagesPath": "C:\\Users\\FIC\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\FIC\\aula_backend\\sistema_vendas\\obj\\",
+      "projectPath": "g:\\Projetos_Internos\\sistema_vendas\\sistema_vendas.csproj",
+      "packagesPath": "C:\\Users\\CorujasDev\\.nuget\\packages\\",
+      "outputPath": "g:\\Projetos_Internos\\sistema_vendas\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\FIC\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\CorujasDev\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
