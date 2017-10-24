@@ -670,11 +670,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "g:\\Projetos_Internos\\sistema_vendas\\sistema_vendas.csproj",
+      "projectUniqueName": "G:\\Projetos_Internos\\sistema_vendas\\sistema_vendas.csproj",
       "projectName": "sistema_vendas",
-      "projectPath": "g:\\Projetos_Internos\\sistema_vendas\\sistema_vendas.csproj",
+      "projectPath": "G:\\Projetos_Internos\\sistema_vendas\\sistema_vendas.csproj",
       "packagesPath": "C:\\Users\\CorujasDev\\.nuget\\packages\\",
-      "outputPath": "g:\\Projetos_Internos\\sistema_vendas\\obj\\",
+      "outputPath": "G:\\Projetos_Internos\\sistema_vendas\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

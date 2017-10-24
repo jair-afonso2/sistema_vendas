@@ -421,17 +421,67 @@ namespace sistema_vendas
                 #endregion
 
                 StreamWriter sw = new StreamWriter("vendas.txt", true);
-                sw.WriteLine(cliente[0] + ";" + produto[0]+ ";" + produto[1]+ ";" + produto[2]+ ";" + produto[3] );
+                sw.WriteLine(cliente[0] + ";" + cliente[1] + ";" + produto[0]+ ";" + produto[1]+ ";" + produto[2]+ ";" + produto[3] );
                 sw.Close();
         }
 
         static void ExtratoCliente(){
+            String opcaopfpj = "";
 
-        }
-        static void Sair(){
-            
-        }
+             do{
+                    
+                    Console.WriteLine("Digite 1 para pessoa física  e 2 para pessoa jurídica");
+                    opcaopfpj = Console.ReadLine();
+                    if(opcaopfpj != "1" && opcaopfpj != "2"){
+                        Console.WriteLine("Opção invalida");
+                    }
 
+                }while(opcaopfpj != "1" && opcaopfpj != "2");
+
+                string documento;
+                bool documentovalido = false;
+
+                do{
+                    if(opcaopfpj == "1"){
+                        Console.WriteLine("Digite seu CPF");
+                        documento = Console.ReadLine();
+                        documentovalido = ValidarCPF(documento);
+
+                        if(!documentovalido)
+                            Console.WriteLine("CPF Inválido");
+                    }
+                    else{
+                        Console.WriteLine("Digite seu CNPJ");
+                        documento = Console.ReadLine();
+
+                        documentovalido = ValidarCNPJ(documento);
+
+                        if(!documentovalido)
+                            Console.WriteLine("CNPJ Inválido");
+    	            }
+                }while(!documentovalido);
+
+                if (!File.Exists("vendas.txt"))
+                {
+                    Console.WriteLine("Não foram efetuadas vendas!!!");
+                }
+                else
+                {
+                    string[] vendas = File.ReadAllLines("vendas.txt");
+                    string[] arrayvenda;
+                    foreach (var produto in vendas)
+                    {
+                        arrayvenda = produto.Split(";");
+                        if (arrayvenda[0] == documento)
+                        {
+                            Console.WriteLine(arrayvenda[0].PadRight(15) + arrayvenda[1].PadRight(15) + arrayvenda[2].PadRight(25) + arrayvenda[4].PadRight(25));
+                        }
+                    }
+                }
+
+                
+        }
+        
         static void GravarErro(string funcao, string erro){
                 try
                 {
