@@ -7,12 +7,12 @@ namespace sistema_vendas
     {
         static void Main(string[] args)
         {
-            
             try
             {
                 int opcao = 0;
             
                 do{
+                //Mostra um menu de opções para o usuário
                 Console.WriteLine("Digite a opção");
                 Console.WriteLine("1 - Cadastrar Cliente");
                 Console.WriteLine("2 - Cadastrar Produto");
@@ -20,8 +20,10 @@ namespace sistema_vendas
                 Console.WriteLine("4 - Extrato Cliente");
                 Console.WriteLine("9 - Sair");
 
+                //Recebe a opção do usuário
                 opcao =  Int16.Parse(Console.ReadLine());
                 
+                //Verifica qual opção o usuário informou
                 switch(opcao){
                     case 1:
                         CadastrarCliente();
@@ -36,8 +38,11 @@ namespace sistema_vendas
                         ExtratoCliente();
                         break;
                     case 9:{
+                        //Pergunta para o usuário se ele realmente deseja sair
                         Console.WriteLine("Deseja realmente sair(s ou n)");
+                        //Obtem a opção do usuário
                         string sair = Console.ReadLine();
+                        //Verifica se ele digitou s
                         if(sair.ToLower().Contains("s"))
                             Environment.Exit(0);
                         else if(!sair.ToLower().Contains("n"))
@@ -54,59 +59,80 @@ namespace sistema_vendas
                         Console.WriteLine("Opção Inválida");
                         break;
                 }
-
+                //fica no laço até o usuário digitar 9
                 }while(opcao != 9);
             }
             catch (System.Exception e)
             {
+                //Caso ocorra algum erro grava no arquivo de erros
                 GravarErro("Main", e.Message);
             }
         }
 
+        /// <summary>
+        /// Verifica o cpf
+        /// </summary>
+        /// <param name="cpf">Cpf do usuário</param>
+        /// <returns>Retorna um bool se o cpf é válido ou inválido</returns>
         static bool ValidarCPF(string cpf){
+            //Retira os pontos e traços
             cpf = cpf.Trim().Replace(".", "").Replace("-","");
 
+            //Verifica se tem 11 digitos o parametro passado, caso não tenha retorna falso
             if (cpf.Length != 11){
                 return false;
             }
 
+            //Verifica se o cpf digitado não possui a sequência de números informada
             if(cpf == "00000000000" || cpf == "11111111111" || cpf == "22222222222"
              || cpf == "33333333333" || cpf == "44444444444" || cpf == "55555555555"
              || cpf == "66666666666" || cpf == "77777777777" || cpf == "88888888888" || cpf == "99999999999"){
                  return false;
              }
 
-             int[] multiplicador1 = new int[9]{10,9,8,7,6,5,4,3,2};
-             int[] multiplicador2 = new int[10]{11,10,9,8,7,6,5,4,3,2};
+            //cria um array de int para validar o primeiro digito
+            int[] multiplicador1 = new int[9]{10,9,8,7,6,5,4,3,2};
+            //cria um array de int para validar o segundo digito
+            int[] multiplicador2 = new int[10]{11,10,9,8,7,6,5,4,3,2};
+
 
              string tempCpf, digito;
              int soma =0,resto =0;
 
+            //armazena na váriavel tempCpf os 9 primeiros digitos do cpf passado como parametro
              tempCpf = cpf.Substring(0,9);
 
-             for (int i = 0; i < 9; i++)
-             {
-                 soma += Convert.ToInt16(tempCpf[i].ToString())  * multiplicador1[i];
-             }
+            //percorre o array multiplicando os digitos do cpf com a posição do array e soma
+            for (int i = 0; i < 9; i++)
+            {
+                soma += Convert.ToInt16(tempCpf[i].ToString())  * multiplicador1[i];
+            }
 
-             resto = soma % 11;
+            //armazena o resto da divisão da soma por 11
+            resto = soma % 11;
 
+            //Caso o resto seja menor que 2 atribui 0, caso contrário atribui 11 - resto para obter primeiro número
             if(resto < 2)
                 resto = 0;
             else
                 resto = 11 - resto;
 
+            //atribui a digito o resto
             digito = resto.ToString();
+            //concatena o tempCpf com o digito
             tempCpf = tempCpf + digito;
 
             soma = 0;
-             for (int i = 0; i < 10; i++)
-             {
-                 soma += Convert.ToInt16(tempCpf[i].ToString())  * multiplicador2[i];
-             }
+            //Percorre o tempcpf contatenado e multiplica pelos valores do array
+            for (int i = 0; i < 10; i++)
+            {
+                soma += Convert.ToInt16(tempCpf[i].ToString())  * multiplicador2[i];
+            }
 
-             resto = soma % 11;
+            //armazena o resto da divisão da soma por 11
+            resto = soma % 11;
 
+            //concatena o tempCpf com o digito
             if(resto < 2)
                 resto = 0;
             else
@@ -114,6 +140,7 @@ namespace sistema_vendas
 
             digito  =digito + resto.ToString();
 
+            //Verifica se os ultimos 2 digitos obtidos são iguais aos do cpf passado
             return cpf.EndsWith(digito);
         }
 
@@ -171,16 +198,21 @@ namespace sistema_vendas
 
             try
             {
+                //Verifica se arquivo existe, caso não exista produto não cadastrado
                 if (!File.Exists("produtos.txt"))
                 {
                     return false;
                 }
 
+                //Caso arquivo exista obtem todos os produtos do arquivo
                 string[] produtos = File.ReadAllLines("produtos.txt");
                 string[] arrayproduto;
+                //percorre o array de produtos
                 foreach (var produto in produtos)
                 {
+                    //Split cria um array e atribui o mesmo a váriavel arrayproduto
                     arrayproduto = produto.Split(";");
+                    //verifica se o produto já foi cadastrado
                     if (arrayproduto[0] == codigoProduto)
                     {
                         return true;

@@ -1,2 +1,0 @@
-sku5432;Cerveja Skol lata;Cerveja skol lata;279
-sku5543;Cerveja Brhama lata;Cerveja;2,79

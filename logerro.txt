@@ -1,3 +1,0 @@
-23/10/2017 00:56:33 - Main - Could not find file 'G:\Projetos_Internos\sistema_vendas\clientes.txt'.
-23/10/2017 00:59:05 - Main - Could not find file 'g:\Projetos_Internos\sistema_vendas\clientes.txt'.
-23/10/2017 01:00:31 - Main - Could not find file 'g:\Projetos_Internos\sistema_vendas\clientes.txt'.
