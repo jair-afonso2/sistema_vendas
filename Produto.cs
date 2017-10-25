@@ -5,22 +5,24 @@ namespace sistema_vendas
 {
     public class Produto
     {
-        public static void CadastrarProduto(){
+        public static void CadastrarProduto()
+        {
             try
             {
                 string codigoproduto;
                 bool produtovalido;
 
-                do{                   
+                do
+                {
                     Console.WriteLine("Digite o código do Produto");
                     codigoproduto = Console.ReadLine();
-                    
+
                     produtovalido = VerificaProdutoCadastrado(codigoproduto);
 
-                    if(!produtovalido)
+                    if (!produtovalido)
                         Console.WriteLine("Código produto já cadastrado!");
 
-                }while(produtovalido);
+                } while (produtovalido);
 
                 Console.WriteLine("Digite o nome do produto");
                 string nome = Console.ReadLine();
@@ -40,10 +42,11 @@ namespace sistema_vendas
             catch (Exception e)
             {
                 Log.GravarErro("CadastrarProduto", e.Message);
-            } 
+            }
         }
 
-        public static bool VerificaProdutoCadastrado(string codigoProduto){
+        public static bool VerificaProdutoCadastrado(string codigoProduto)
+        {
 
             try
             {
@@ -73,7 +76,7 @@ namespace sistema_vendas
             }
             catch (System.Exception e)
             {
-                Log.GravarErro("VerificaProdutoCadastrado",e.Message );
+                Log.GravarErro("VerificaProdutoCadastrado", e.Message);
                 throw;
             }
         }
