@@ -18,3 +18,13 @@ g:\Projetos_Internos\sistema_vendas\bin\Debug\netcoreapp2.0\sistema_vendas.runti
 g:\Projetos_Internos\sistema_vendas\bin\Debug\netcoreapp2.0\sistema_vendas.runtimeconfig.dev.json
 g:\Projetos_Internos\sistema_vendas\bin\Debug\netcoreapp2.0\sistema_vendas.dll
 g:\Projetos_Internos\sistema_vendas\bin\Debug\netcoreapp2.0\sistema_vendas.pdb
+c:\Users\38141419897\Desktop\sistema_vendas\bin\Debug\netcoreapp2.0\sistema_vendas.deps.json
+c:\Users\38141419897\Desktop\sistema_vendas\bin\Debug\netcoreapp2.0\sistema_vendas.runtimeconfig.json
+c:\Users\38141419897\Desktop\sistema_vendas\bin\Debug\netcoreapp2.0\sistema_vendas.runtimeconfig.dev.json
+c:\Users\38141419897\Desktop\sistema_vendas\bin\Debug\netcoreapp2.0\sistema_vendas.dll
+c:\Users\38141419897\Desktop\sistema_vendas\bin\Debug\netcoreapp2.0\sistema_vendas.pdb
+c:\Users\38141419897\Desktop\sistema_vendas\obj\Debug\netcoreapp2.0\sistema_vendas.csproj.CoreCompileInputs.cache
+c:\Users\38141419897\Desktop\sistema_vendas\obj\Debug\netcoreapp2.0\sistema_vendas.AssemblyInfoInputs.cache
+c:\Users\38141419897\Desktop\sistema_vendas\obj\Debug\netcoreapp2.0\sistema_vendas.AssemblyInfo.cs
+c:\Users\38141419897\Desktop\sistema_vendas\obj\Debug\netcoreapp2.0\sistema_vendas.dll
+c:\Users\38141419897\Desktop\sistema_vendas\obj\Debug\netcoreapp2.0\sistema_vendas.pdb

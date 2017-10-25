@@ -7,11 +7,16 @@ namespace sistema_vendas
     {
         static void Main(string[] args)
         {
+
             try
             {
                 int opcao = 0;
             
                 do{
+                
+                //Criando objeto
+                Cliente Cliente = new Cliente();
+
                 //Mostra um menu de opções para o usuário
                 Console.WriteLine("Digite a opção");
                 Console.WriteLine("1 - Cadastrar Cliente");
@@ -26,16 +31,16 @@ namespace sistema_vendas
                 //Verifica qual opção o usuário informou
                 switch(opcao){
                     case 1:
-                        CadastrarCliente();
+                        Cliente.CadastrarCliente();
                         break;
                     case 2:
-                        CadastrarProduto();
+                        Produto.CadastrarProduto();
                         break;
                     case 3:
-                        RealizarVenda();
+                        Vendas.RealizarVenda();
                         break;
                     case 4:
-                        ExtratoCliente();
+                        Cliente.ExtratoCliente();
                         break;
                     case 9:{
                         //Pergunta para o usuário se ele realmente deseja sair
@@ -65,7 +70,7 @@ namespace sistema_vendas
             catch (System.Exception e)
             {
                 //Caso ocorra algum erro grava no arquivo de erros
-                GravarErro("Main", e.Message);
+                Log.GravarErro("Main", e.Message);
             }
         }
 
@@ -74,7 +79,7 @@ namespace sistema_vendas
         /// </summary>
         /// <param name="cpf">Cpf do usuário</param>
         /// <returns>Retorna um bool se o cpf é válido ou inválido</returns>
-        static bool ValidarCPF(string cpf){
+        /*static bool ValidarCPF(string cpf){
             //Retira os pontos e traços
             cpf = cpf.Trim().Replace(".", "").Replace("-","");
 
@@ -142,9 +147,9 @@ namespace sistema_vendas
 
             //Verifica se os ultimos 2 digitos obtidos são iguais aos do cpf passado
             return cpf.EndsWith(digito);
-        }
+        }*/
 
-        static bool ValidarCNPJ(string cnpj){
+        /*static bool ValidarCNPJ(string cnpj){
             cnpj = cnpj.Trim().Replace(".", "").Replace("-","");
 
             if (cnpj.Length != 14){
@@ -192,9 +197,9 @@ namespace sistema_vendas
             digito = resto.ToString();
 
             return cnpj.EndsWith(digito);
-        }
+        }*/
 
-        static bool VerificaProdutoCadastrado(string codigoProduto){
+        /*static bool VerificaProdutoCadastrado(string codigoProduto){
 
             try
             {
@@ -227,9 +232,9 @@ namespace sistema_vendas
                 GravarErro("VerificaProdutoCadastrado",e.Message );
                 throw;
             }
-        }
+        }*/
 
-        static bool VerificaClienteCadastrado(string documento){
+        /*static bool VerificaClienteCadastrado(string documento){
 
             try
             {
@@ -257,10 +262,10 @@ namespace sistema_vendas
                 GravarErro("VerificaClienteCadastrado",e.Message );
                 throw;
             }
-        }
+        }*/
 
 
-        static void CadastrarCliente(){
+        /*static void CadastrarCliente(){
             try
             {
                 Console.WriteLine("Digite o nome do cliente");
@@ -315,10 +320,10 @@ namespace sistema_vendas
             {
                 GravarErro("CadastrarCliente", e.Message);
             } 
-        }  
+        }*/  
 
 
-        static void CadastrarProduto(){
+        /*static void CadastrarProduto(){
             try
             {
                 string codigoproduto;
@@ -354,9 +359,9 @@ namespace sistema_vendas
             {
                 GravarErro("CadastrarProduto", e.Message);
             } 
-        }
+        }*/
 
-        static void RealizarVenda(){
+        /*static void RealizarVenda(){
             string opcaopfpj = "";
 
                 do{
@@ -455,9 +460,9 @@ namespace sistema_vendas
                 StreamWriter sw = new StreamWriter("vendas.txt", true);
                 sw.WriteLine(cliente[0] + ";" + cliente[1] + ";" + produto[0]+ ";" + produto[1]+ ";" + produto[2]+ ";" + produto[3] );
                 sw.Close();
-        }
+        }*/
 
-        static void ExtratoCliente(){
+        /*static void ExtratoCliente(){
             String opcaopfpj = "";
 
              do{
@@ -510,22 +515,8 @@ namespace sistema_vendas
                         }
                     }
                 }
-
                 
-        }
+        }*/
         
-        static void GravarErro(string funcao, string erro){
-                try
-                {
-                    Console.WriteLine("Ocorreu um erro - Contacte o Administrador");
-                    StreamWriter sr = new StreamWriter("logerro.txt", true);
-                    sr.WriteLine(DateTime.Now + " - " + funcao + " - " + erro );
-                    sr.Close();
-                }
-                catch (System.Exception)
-                {
-                    Console.WriteLine("Ocorreu um erro - Contacte o Administrador");
-                }
-        }
     }
 }
