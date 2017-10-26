@@ -19,7 +19,7 @@ namespace sistema_vendas
 
                     produtovalido = VerificaProdutoCadastrado(codigoproduto);
 
-                    if (!produtovalido)
+                    if (produtovalido)
                         Console.WriteLine("Código produto já cadastrado!");
 
                 } while (produtovalido);
